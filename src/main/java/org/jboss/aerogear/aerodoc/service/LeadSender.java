@@ -60,7 +60,9 @@ public class LeadSender {
                     .attribute("name", lead.getName())
                     .attribute("location", lead.getLocation())
                     .attribute("phone", lead.getPhoneNumber()).sound("default")
-                    .alert("A new lead has been created").build();
+                    .alert("A new lead has been created")
+                    .contentAvailable().build();
+
             ((SenderClient) javaSender).setServerURL(getActivePushConfig().getServerURL());
             javaSender.send(unifiedMessage);
         } else {
